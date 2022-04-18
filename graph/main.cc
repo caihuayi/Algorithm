@@ -1,5 +1,5 @@
 #include "Graph.h"
-#include "prim.h"
+#include "mst.h"
 #include <vector>
 #include <set>
 #include <iostream>
@@ -26,8 +26,15 @@ int main()
 	set<int> vertex_set(vertex.begin(), vertex.end());
 	Graph g = Graph(vertex_set, adj);
 	Graph r = prim(g);	
-	
+	Graph r2 = kruskal(g);	
 	for (auto& i: r.adj) {
+		for (auto j: i) {
+			cout << j << " ";
+		}
+		cout << endl;
+	}
+	cout << "==============" << endl;
+	for (auto& i: r2.adj) {
 		for (auto j: i) {
 			cout << j << " ";
 		}
